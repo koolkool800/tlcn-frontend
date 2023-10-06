@@ -1,0 +1,4 @@
+export enum TransactionMethod {
+  PIN_TRANSACTION = 'PIN_TRANSACTION',
+  SELLER_SHIPMENT = 'SELLER_SHIPMENT',
+}

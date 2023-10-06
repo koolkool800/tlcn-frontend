@@ -1,0 +1,62 @@
+const HTTP_STATUS = {
+  EMAIL_IS_REGISTERED: '귀하의 이메일이 재판매 티켓에 존재했습니다.',
+  AUTH_SNS_ERROR_400: '카카오 계정정보를 불러오는데 실패했습니다.',
+
+  UNAUTHORIZED: '로그인 세션이 만료되었습니다. 다시 로그인해주세요.',
+  FORBIDDEN: '로그인 세션이 만료되었습니다. 다시 로그인해주세요.',
+  NOT_FOUND: 'NOT_FOUND|404',
+  PATH_NOT_FOUND: 'PATH_NOT_FOUND|404',
+  FILTER_NULL: 'FILTER_NULL|404',
+
+  CAN_NOT_SEND_EMAIL: 'CAN_NOT_SEND_EMAIL|500',
+  REQUEST_RESET_PW_NOT_FOUND: '비밀번호를 재설정해주세요.',
+
+  EMAIL_EXISTS_OTHER_SNS_400: 'EMAIL_EXISTS_OTHER_SNS_400|400',
+  GOOGLE_ACCOUNT_NOT_VERIFIED_400: 'GOOGLE_ACCOUNT_NOT_VERIFIED_400|400',
+  EMAIL_IS_REGISTERED_WITH_OTHER_TYPE:
+    'EMAIL_IS_REGISTERED_WITH_OTHER_TYPE|400',
+  Successfully: '성공',
+  VALIDATION_ERROR: '확인 오류',
+
+  VOUCHER_APPLIED: '쿠폰이 적용되었습니다.',
+
+  PAYMENT_COMPLETED: '결제 완료',
+  ON_SHIPPING: '배송중',
+  TRANSACTION_COMPLETED: '거래완료',
+  CANCELLED: '취소됨',
+  DELIVERY_COMPLETED: '배송 완료',
+  CANCEL_COMPLETED: '취소 완료',
+  VOUCHER_INVALID: '쿠폰을 적용 할 수 없는 상품입니다',
+  TICKET_NOT_FOUND: '현재 티켓을 이용 할 수 없습니다',
+  TICKET_NOT_IN_IS_LISTING_STATUS: '해당 티켓은 재고가 없습니다',
+  TICKET_NOT_AVAILABLE: '티켓을 사용할 수 없습니다',
+  PIN_TRANSACTION: 'PIN 거래',
+  ONLINE_TRANSACTION: '온라인 거래',
+  SELLER_SHIPMENT: '판매자 배송',
+  EMAIL_EXISTED: '이미 등록된 이메일입니다.',
+  INVALID_CREDENTIALS: '이메일 또는 비밀번호가 일치하지 않습니다',
+  SNS_INVALID_EMAIL_OR_NAME: '이메일 또는 이름이 유효하지 않습니다',
+  FORGOT_PW_OTP_SENT: 'OTP 번호가 발송되었습니다, 이메일을 확인해주세요',
+  NOT_FOUND_USER: '이메일 주소를 찾을 수 없습니다.',
+  REQUEST_RESET_PW_IS_EXPIRED: 'OTP 번호가 만료되었습니다. 다시 요청해주세요',
+  RESET_PW_WRONG_OTP: '비밀번호를 재설정해주세요.',
+  VOUCHER_NOT_FOUND: '쿠폰을 찾을 수 없습니다',
+  ALREADY_SEND_VERFIY_EMAIL: '이 이메일은 이전에 이미 OTP로 전송되었습니다.',
+  INVALID_CODE: 'OTP가 만료되었거나 유효하지 않습니다.',
+  MISSING_PARAM: '전화번호 또는 비밀번호가 비어 있습니다.',
+  REQUEST_IS_PENDING_APPROVAL_400: '귀하의 요청이 승인 대기 중입니다.',
+  OTP_NOT_EXIST: 'OTP가 존재하지 않습니다',
+  INVALID_OTP: 'OTP가 유효하지 않음',
+  ORDER_NOT_FOUND: '주문을 찾을 수 없습니다',
+  TICKET_SHIPMENT_ERROR: '핀 거래만 선택하세요.',
+  INTERNAL_SERVER_ERROR: '인터넷 서버 오류',
+  NICE_TOKEN_VERSION_ID_NOT_FOUND:
+    '사용자가 이전에 첫 번째 요청(27.1)을 보내지 않았습니다. => token_version_id를 인식할 수 없습니다.',
+  NICE_CONFIRMED_SUCCESS: '성공적으로 확인되었습니다',
+  NICE_VERIFY_FAILED: '확인 실패',
+  PAYMENT_SUCCESS: '결제 성공',
+  PAYMENT_FAILED: '결제 실패',
+  SAME_AUTHOR: `동일 작가는 티켓을 구매할 수 없습니다.`,
+};
+
+export default HTTP_STATUS;
