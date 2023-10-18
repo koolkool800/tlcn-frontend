@@ -33,7 +33,7 @@ export const CardTicket = styled.div`
       margin-bottom: 2px;
 
       overflow: hidden;
-      text-overflow: ellipsis;
+      text-overflow: '----';
       white-space: nowrap;
     }
     .location {
@@ -42,6 +42,10 @@ export const CardTicket = styled.div`
       line-height: 22px;
       margin-bottom: 8px;
       color: #ffffffa3;
+
+      overflow: hidden;
+      text-overflow: '----';
+      white-space: nowrap;
     }
     .price {
       /* font-family: ${(props) => props.theme.font.bold}; */

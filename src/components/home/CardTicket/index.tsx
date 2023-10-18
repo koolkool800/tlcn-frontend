@@ -15,7 +15,7 @@ function CardTicket({ location, price, title, poster, onClick }: CardType) {
       </div>
       <div className="bottom-content">
         <h6 className="title">{title}</h6>
-        <p className="location">{location}</p>
+        <div className="location">{location}</div>
         <p className="price">{price}</p>
       </div>
     </S.CardTicket>

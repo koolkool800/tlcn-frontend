@@ -2,7 +2,7 @@ import { getLanguage } from './localStorage';
 
 export const currencyFormat = (
   num: number,
-  options: { [key: string]: any } = { maximumSignificantDigits: 5 }
+  options: { [key: string]: any } = { maximumSignificantDigits: 10 }
 ) => {
   const current = getLanguage();
   try {

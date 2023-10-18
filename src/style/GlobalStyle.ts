@@ -62,9 +62,13 @@ const GlobalStyles = createGlobalStyle`
       font-size: 13px;
     }
   }
+  // main #f8f6f2
+  // main sub #fdfcfb
+  // sub2
   body {
     height: 100%;
     background-color: #121212;
+    /* background-color: #f8f6f2; */
     #root {
       @media(max-width : 540px) {
         background-color: #121212;
@@ -77,6 +81,10 @@ const GlobalStyles = createGlobalStyle`
     border: none;
     outline: none;
   }
+
+  /* h1,h2,h3, h4 , h5 , h6 , a , p , span , li , ul , ol , input , textarea , button , select , option , label , div , img , svg , path , g , rect , circle , ellipse , line , polyline , polygon , nav , section , article , header , footer , main , aside , form , fieldset , legend , pre , code , table , caption , tbody , thead , tfoot , tr , th , td , iframe , audio , video , canvas , time , address , details , summary , figure , figcaption , blockquote , q , cite , dfn , abbr , small , strong , em , sub , sup , mark , del , ins , strike , samp , kbd , var , bdo , ruby , rt , rp , tt , b , u , i , center , s , wbr , noscript , menu , command , keygen , output , progress , meter , details , summary , menuitem , summary , template , slot , sha { 
+    color : black !important;
+  } */
 
   html, body,
   h1, h2, h3, h4, h5, h6,

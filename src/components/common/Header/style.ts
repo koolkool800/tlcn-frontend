@@ -13,6 +13,7 @@ export const Header = styled.div`
   flex-direction: column;
   gap: 16px;
   transition: background-color 0.2s ease-out;
+  /* background-color: #121212 !important; */
   &.home {
     position: fixed;
     margin-bottom: 0;
