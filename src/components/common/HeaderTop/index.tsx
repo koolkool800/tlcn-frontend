@@ -52,14 +52,14 @@ const HeaderTop = () => {
       <div className="right">
         {auth.accessToken ? (
           <S.Wrapper>
-            <Notification />
-            {!xs && <LanguageDropDown />}
+            {/* <Notification />
+            {!xs && <LanguageDropDown />} */}
             <UserInfo />
           </S.Wrapper>
         ) : (
           <>
             <S.Wrapper>
-              {!xs && <LanguageDropDown />}
+              {/* {!xs && <LanguageDropDown />} */}
               <Button
                 onClick={() => {
                   navigate(ROUTES.LOGIN);

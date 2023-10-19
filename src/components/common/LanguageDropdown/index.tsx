@@ -24,7 +24,7 @@ const LanguageDropDown = () => {
   const { i18n } = useTranslation();
   const langCurrent = getLanguage();
   const [currentLang, setCurrentLang] = useState<string>(
-    langCurrent || LANGUAGE_VALUE.ko
+    langCurrent || LANGUAGE_VALUE.en
   );
   const [open, setOpen] = useState(false);
 

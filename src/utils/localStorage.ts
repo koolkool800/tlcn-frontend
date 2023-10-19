@@ -33,7 +33,7 @@ export const getLanguage = (): string => {
   const langList = ['en', 'ko'];
   let lang: string | null = localHandler.getLocal(LOCAL_STORE.LANG);
   if (!langList.includes(String(lang))) {
-    lang = LANGUAGE_VALUE.ko;
+    lang = LANGUAGE_VALUE.en;
   }
   return String(lang);
 };
