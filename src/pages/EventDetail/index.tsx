@@ -20,6 +20,8 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styles';
+import PaypalPaymentUnlock from '@components/eventPage/paymentUnlock';
+import useAuth from '@hooks/useAuth';
 
 function EventDetail() {
   const { id = '' } = useParams();
@@ -31,6 +33,8 @@ function EventDetail() {
   const [userProfile, setUserProfile] = useState<UserType | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isPayment, setIsPayment] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   /**
    * fetch event detail
    * @returns {Promise<void>}
@@ -128,31 +132,16 @@ function EventDetail() {
     }
   };
 
-  /**
-   * func get fgkey user
-   * @returns {Promise<any>}
-   */
-  const getFgkeyUser = async (): Promise<any> => {
-    try {
-      const res: ResponseModel<any> = await paymentService.getFgkey();
-
-      return res.data;
-    } catch (err: any) {
-      return err;
-    }
-  };
-
   const handlePayment = async () => {
-    setLoading(true);
-    try {
-      const dataOrder: ResponseModel<any> = await getFgkeyUser();
-      await paymentEximbay(dataOrder);
-      setLoading(false);
-    } catch (err: any) {
-      // return err;
-      setLoading(false);
-    }
+    setIsPayment(true);
   };
+
+  useEffect(() => {
+    if (paymentSuccess) {
+      // redirect to detail page
+      navigate(`${ROUTES.BUY_TICKET}/${id}?redirectUrl=`);
+    }
+  }, [paymentSuccess]);
 
   return (
     <S.ContainerEventDetail>
@@ -284,16 +273,23 @@ function EventDetail() {
               </S.Desc>
             </div>
 
-            <Button
-              size="large"
-              maxwidth="384"
-              color={theme.colors.black}
-              bgcolor={theme.colors.primary500}
-              onClick={handlePayment}
-              loading={loading}
-            >
-              {t('payment.pay')}
-            </Button>
+            {!isPayment ? (
+              <Button
+                size="large"
+                maxwidth="384"
+                color={theme.colors.black}
+                bgcolor={theme.colors.primary500}
+                onClick={handlePayment}
+                loading={loading}
+              >
+                {t('payment.pay')}
+              </Button>
+            ) : (
+              <PaypalPaymentUnlock
+                setPaymentSuccess={setPaymentSuccess}
+                setCloseModel={setOpenModal}
+              />
+            )}
           </>
         </Modal>
       </S.Container>
