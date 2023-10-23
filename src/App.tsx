@@ -1,5 +1,6 @@
 import Loader from '@components/common/Loader';
 import ScrollButton from '@components/common/ScrollButton';
+import { LOCAL_STORE } from '@constants/codeConstants';
 import { ROUTES } from '@constants/routes';
 import ConfirmTicket from '@pages/SellTicket/ConfirmTicket';
 import {
@@ -10,9 +11,11 @@ import {
 } from '@routes';
 import GlobalStyles from '@style/GlobalStyle';
 import theme from '@style/themes/default';
+import { localHandler } from '@utils/localStorage';
 import { BackTop } from 'antd';
+import { LANGUAGE_VALUE } from 'i18n';
 import { ArrowUp3 } from 'iconsax-react';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 // -----------  COMPONENTS IMPORT --------------------------
@@ -32,6 +35,8 @@ const SelectTransactionMethod = lazy(
 const SellTicket = lazy(() => import('@pages/SellTicket/RegisterSellTicket'));
 const RegisterSeller = lazy(() => import('@pages/RegisterSeller'));
 const TermOfUse = lazy(() => import('@pages/TermOfUse'));
+
+import { useIsFirstRender } from 'usehooks-ts';
 
 export default function App() {
   return (

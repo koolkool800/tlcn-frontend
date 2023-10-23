@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
   resources,
   debug: false,
   fallbackLng: localStorage.getItem('language') || LANGUAGE_VALUE.ko,
-  lng: localStorage.getItem('language') || LANGUAGE_VALUE.ko,
+  lng: localStorage.getItem('language') || LANGUAGE_VALUE.en,
   interpolation: {
     escapeValue: false,
   },
