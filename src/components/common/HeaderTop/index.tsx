@@ -14,6 +14,7 @@ import Notification from '../Notification';
 import SearchBarWithDropdown from '../SearchBarWithDropdown';
 import UserInfo from '../UserInfo';
 import * as S from './style';
+import { CONFIG } from '@constants/codeConstants';
 
 const HeaderTop = () => {
   const auth = useAuth();
@@ -52,7 +53,8 @@ const HeaderTop = () => {
       <div className="right">
         {auth.accessToken ? (
           <S.Wrapper>
-            {/* <Notification />
+            <Notification />
+            {/*
             {!xs && <LanguageDropDown />} */}
             <UserInfo />
           </S.Wrapper>

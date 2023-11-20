@@ -1,3 +1,4 @@
+import { CONFIG } from '@constants/codeConstants';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import buyTicketService, { CreateOrders } from '@services/buyTicketService';
 import { Form, message } from 'antd';
@@ -5,7 +6,7 @@ import { ResponseModel } from 'interface';
 import { DeliveryInformation } from 'interface/insideTicket';
 import { useState } from 'react';
 
-const api_url = 'http://localhost:3000/api/v1';
+const api_url = `${CONFIG.API_URL}/api/v1`;
 
 type OnApproveData = {
   billingToken?: string | null;
@@ -76,34 +77,40 @@ function PaypalPayment({ idTicket, methodDelivery, setPaymentSuccess }: Props) {
    * @description pass the resellOrderId (id of the order just created) and amount (total payment) to create the order
    */
   async function createOrder(): Promise<string> {
-    const values = form.getFieldsValue();
+    try {
+      const values = form.getFieldsValue();
 
-    const zoneCodeValue = form.getFieldValue('zoneCode');
-    const valueForm = { ...values, zoneCode: zoneCodeValue };
-    const { orderId, amount } = await createOderPayment(valueForm);
+      const zoneCodeValue = form.getFieldValue('zoneCode');
+      const valueForm = { ...values, zoneCode: zoneCodeValue };
+      const { orderId, amount } = await createOderPayment(valueForm);
 
-    const response = await fetch(`${api_url}/payment/paypal/create-order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        resellOrderId: Number(orderId),
-        amount,
-      }),
-    });
+      const response = await fetch(`${api_url}/payment/paypal/create-order`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          resellOrderId: Number(orderId),
+          amount,
+        }),
+      });
 
-    const orderData = await response.json();
+      const orderData = await response.json();
+      console.log('hihihihihihihi0-00000000000000000000000000');
+      console.log({ orderData });
+      if (orderData.data.paypalOrderId) {
+        return orderData.data.paypalOrderId;
+      } else {
+        const errorDetail = orderData?.details?.[0];
+        const errorMessage = errorDetail
+          ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
+          : JSON.stringify(orderData);
 
-    if (orderData.data.paypalOrderId) {
-      return orderData.data.paypalOrderId;
-    } else {
-      const errorDetail = orderData?.details?.[0];
-      const errorMessage = errorDetail
-        ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-        : JSON.stringify(orderData);
-
-      throw new Error(errorMessage);
+        throw new Error(errorMessage);
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error(`${error}`);
     }
   }
 

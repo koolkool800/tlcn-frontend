@@ -26,6 +26,8 @@ const authInit: Auth = {
   state: '',
 };
 
+//check xem co user hay khong
+
 const handleLogin = (accessToken: string, user: UserType, remember = false) => {
   saveLocalStorage({
     data: accessToken,
