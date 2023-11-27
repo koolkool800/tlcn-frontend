@@ -71,7 +71,7 @@ function TopEvent({ filter, title, expandBanner }: EventTypeProps) {
             location={event.place}
             price={`${formatNumberWithCommas(
               event.minPrice
-            )}원 ~ ${formatNumberWithCommas(event.maxPrice)}원`}
+            )} ~ ${formatNumberWithCommas(event.maxPrice)}`}
           />
         </CustomLink>
       </Col>
