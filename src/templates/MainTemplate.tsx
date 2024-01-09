@@ -37,7 +37,6 @@ function MainTemplate(props: OutletProps) {
     <>
       <Header visible={visible} />
       <Outlet />
-      <Footer />
     </>
   );
 }
